@@ -50,6 +50,7 @@ class LoginScreen extends StatelessWidget {
                           text: "Login with Zomato",
                           onPressed: () {},
                         ),
+                        SizedBox(height: 5),
                         CustomText.customText(
                           text:
                               "Access your saved address from Zomato automatically.",
