@@ -1,8 +1,10 @@
 import 'package:blinkit_clone/core/colors.dart';
+import 'package:blinkit_clone/screens/bottom-navbar/bottom_navbar_screen.dart';
 import 'package:blinkit_clone/widgets/custom_buttons.dart';
 import 'package:blinkit_clone/widgets/custom_image.dart';
 import 'package:blinkit_clone/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -49,7 +51,9 @@ class LoginScreen extends StatelessWidget {
                         CustomButtons.customElevatedButton(
                           context: context,
                           text: "Login with Zomato",
-                          onPressed: () {},
+                          onPressed: () {
+                            context.push(BottomNavbarScreen.path);
+                          },
                         ),
                         SizedBox(height: 5),
                         CustomText.customText(
