@@ -61,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                         TextButton(
                           onPressed: () {},
                           child: CustomText.customText(
-                            text: "Login with Phone Number",
+                            text: "or Login with Phone Number",
                             color: AppColors.linkColor,
                           ),
                         ),
