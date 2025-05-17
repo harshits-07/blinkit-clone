@@ -29,7 +29,7 @@ class _BottomNavbarScreenState extends State<BottomNavbarScreen> {
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: true,
         unselectedItemColor: Colors.black,
-        selectedItemColor: AppColors.primaryColor,
+        selectedItemColor: AppColors.secondaryColor,
         type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
         onTap: (index) {
