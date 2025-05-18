@@ -15,7 +15,13 @@ class CustomAppBar {
         Container(
           height: 225,
           width: double.infinity,
-          color: AppColors.primaryColor,
+          decoration: BoxDecoration(
+            color: AppColors.primaryColor,
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(8),
+              bottomRight: Radius.circular(8),
+            ),
+          ),
           child: Padding(
             padding: const EdgeInsets.all(15),
             child: Column(
@@ -60,17 +66,14 @@ class CustomAppBar {
                   ),
                 ),
                 SizedBox(height: 18),
-                Container(
+                SizedBox(
                   height: 48,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: AppColors.fadeColor),
-                  ),
                   child: TextField(
                     controller: searchController,
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
                       hintText: "search $searchHint",
                       prefixIcon: Icon(CupertinoIcons.search, size: 20),
                       suffixIcon: Icon(CupertinoIcons.mic_fill, size: 20),
@@ -78,7 +81,9 @@ class CustomAppBar {
                         vertical: 11,
                         horizontal: 10,
                       ),
-                      border: InputBorder.none,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
                     ),
                   ),
                 ),
