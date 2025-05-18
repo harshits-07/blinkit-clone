@@ -133,17 +133,15 @@ class _CartScreenState extends State<CartScreen> {
                                         ),
                                       ),
                                       SizedBox(height: 5),
-                                      SizedBox(
-                                        child: Text(
-                                          "${items[index].name}",
-                                          style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                          maxLines: 1,
+                                      Text(
+                                        "${items[index].name}",
+                                        style: TextStyle(
+                                          fontFamily: "Poppins",
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          overflow: TextOverflow.ellipsis,
                                         ),
+                                        maxLines: 1,
                                       ),
                                       SizedBox(height: 5),
                                       Row(
