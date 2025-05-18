@@ -46,7 +46,6 @@ class _CartScreenState extends State<CartScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 40),
             CustomAppBar.customAppBar(searchController: searchController),
             SizedBox(height: 20),
             Column(
