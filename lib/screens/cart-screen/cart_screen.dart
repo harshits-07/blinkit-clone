@@ -42,129 +42,145 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CustomAppBar.customAppBar(searchController: searchController),
-            SizedBox(height: 20),
-            Column(
-              children: [
-                CustomImage.customImage(img: "shopping-cart.png"),
-                SizedBox(height: 10),
-                CustomText.customText(
-                  text: "Reordering will be easy",
-                  weight: FontWeight.bold,
-                  size: 20,
-                  fontFamily: "Bold_Poppins",
-                ),
-                CustomText.customText(
-                  text: "Items you order will show up here so you can buy",
-                  size: 12,
-                ),
-                CustomText.customText(text: "them again easily.", size: 12),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CustomAppBar.customAppBar(searchController: searchController),
+          SizedBox(height: 20),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  CustomImage.customImage(img: "shopping-cart.png"),
+                  SizedBox(height: 10),
+                  CustomText.customText(
+                    text: "Reordering will be easy",
+                    weight: FontWeight.bold,
+                    size: 20,
+                    fontFamily: "Bold_Poppins",
+                  ),
+                  CustomText.customText(
+                    text: "Items you order will show up here so you can buy",
+                    size: 12,
+                  ),
+                  CustomText.customText(text: "them again easily.", size: 12),
 
-                SizedBox(height: 30),
-                Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CustomText.customText(
-                        text: "BestSellers",
-                        weight: FontWeight.bold,
-                        size: 20,
-                      ),
-                      SizedBox(height: 20),
-                      SizedBox(
-                        height: 215,
-                        child: ListView.builder(
+                  SizedBox(height: 30),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 8),
+                          child: CustomText.customText(
+                            text: "BestSellers",
+                            weight: FontWeight.bold,
+                            size: 20,
+                          ),
+                        ),
+
+                        GridView.builder(
                           shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) {
-                            return Card(
-                              elevation: 0,
-                              clipBehavior: Clip.antiAlias,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10),
+                          padding: EdgeInsets.zero,
+                          physics: ClampingScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 3, // Reduce from 3 to 2 columns
+                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 5,
+                                childAspectRatio: 0.55,
                               ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Stack(
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.circular(
-                                            10,
-                                          ),
-                                          child: CustomImage.customImage(
-                                            img: "${items[index].image}",
-                                          ),
+                          itemBuilder: (context, index) {
+                            return SizedBox(
+                              height: 180,
+                              child: Card(
+                                elevation: 0,
+                                clipBehavior: Clip.antiAlias,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.stretch,
+                                    children: [
+                                      SizedBox(
+                                        height: 120,
+                                        child: Stack(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              child: CustomImage.customImage(
+                                                img: "${items[index].image}",
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                left: 66,
+                                                top: 95,
+                                              ),
+                                              child:
+                                                  CustomButtons.customTextButton(
+                                                    text: "ADD",
+                                                    onPressed: () {},
+                                                    context: context,
+                                                  ),
+                                            ),
+                                          ],
                                         ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                            top: 95,
-                                            left: 66,
-                                          ),
-                                          child: CustomButtons.customTextButton(
-                                            text: "ADD",
-                                            onPressed: () {},
-                                            context: context,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(height: 5),
-                                    SizedBox(
-                                      width: 100,
-                                      child: Text(
-                                        "${items[index].name}",
-                                        style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                        maxLines: 1,
                                       ),
-                                    ),
-                                    SizedBox(height: 5),
-                                    Row(
-                                      children: [
-                                        Icon(
-                                          CupertinoIcons.time_solid,
-                                          size: 18,
-                                          color: Colors.brown,
+                                      SizedBox(height: 5),
+                                      SizedBox(
+                                        child: Text(
+                                          "${items[index].name}",
+                                          style: TextStyle(
+                                            fontFamily: "Poppins",
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.bold,
+                                            overflow: TextOverflow.ellipsis,
+                                          ),
+                                          maxLines: 1,
                                         ),
-                                        SizedBox(width: 4),
-                                        CustomText.customText(
-                                          text: "${items[index].estimatedTime}",
-                                          color: AppColors.fadeColor,
-                                        ),
-                                      ],
-                                    ),
-                                    CustomText.customText(
-                                      text: "Rs. ${items[index].price}",
-                                      weight: FontWeight.bold,
-                                    ),
-                                  ],
+                                      ),
+                                      SizedBox(height: 5),
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            CupertinoIcons.time_solid,
+                                            size: 18,
+                                            color: Colors.brown,
+                                          ),
+                                          SizedBox(width: 4),
+                                          CustomText.customText(
+                                            text:
+                                                "${items[index].estimatedTime}",
+                                            color: AppColors.fadeColor,
+                                          ),
+                                        ],
+                                      ),
+                                      CustomText.customText(
+                                        text: "₹ ${items[index].price}",
+                                        weight: FontWeight.bold,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             );
                           },
                           itemCount: items.length,
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
