@@ -79,7 +79,7 @@ class _CartScreenState extends State<CartScreen> {
                       ),
                       SizedBox(height: 20),
                       SizedBox(
-                        height: 240,
+                        height: 215,
                         child: ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
@@ -129,7 +129,7 @@ class _CartScreenState extends State<CartScreen> {
                                           fontWeight: FontWeight.bold,
                                           overflow: TextOverflow.ellipsis,
                                         ),
-                                        maxLines: 2,
+                                        maxLines: 1,
                                       ),
                                     ),
                                     SizedBox(height: 5),
