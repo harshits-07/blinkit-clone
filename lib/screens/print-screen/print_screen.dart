@@ -3,7 +3,6 @@ import 'package:blinkit_clone/widgets/custom_appbar.dart';
 import 'package:blinkit_clone/widgets/custom_buttons.dart';
 import 'package:blinkit_clone/widgets/custom_image.dart';
 import 'package:blinkit_clone/widgets/custom_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PrintScreen extends StatefulWidget {
