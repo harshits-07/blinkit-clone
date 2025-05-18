@@ -70,7 +70,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
           itemBuilder: (context, index) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(4.0),
