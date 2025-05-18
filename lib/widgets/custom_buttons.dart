@@ -6,20 +6,30 @@ class CustomButtons {
     required String text,
     required VoidCallback onPressed,
     required BuildContext context,
+    Color? bgColor,
+    double? height,
+    double? width,
+    double? fontSize,
   }) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Color(0xFFD00000),
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-          fontFamily: "Poppins",
+    return SizedBox(
+      height: height ?? 48,
+      width: width ?? double.infinity,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          backgroundColor: bgColor ?? Color(0xFFD00000),
+          foregroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: fontSize ?? 18,
+            fontWeight: FontWeight.w600,
+            fontFamily: "Poppins",
+          ),
         ),
       ),
     );

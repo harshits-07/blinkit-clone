@@ -4,11 +4,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppBar {
-  static customAppBar({required TextEditingController searchController}) {
+  static customAppBar({
+    required TextEditingController searchController,
+    String? headerText,
+    String? searchHintText,
+  }) {
+    String searchHint = searchHintText ?? "'ice-cream'";
     return Stack(
       children: [
         Container(
-          height: 190,
+          height: 225,
           width: double.infinity,
           color: AppColors.primaryColor,
           child: Padding(
@@ -16,8 +21,9 @@ class CustomAppBar {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                SizedBox(height: 40),
                 CustomText.customText(
-                  text: "Blinkit in",
+                  text: headerText ?? "Blinkit in",
                   weight: FontWeight.bold,
                   fontFamily: "Bold_Poppins",
                 ),
@@ -65,11 +71,11 @@ class CustomAppBar {
                     controller: searchController,
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                      hintText: "Search 'ice-cream'",
+                      hintText: "search $searchHint",
                       prefixIcon: Icon(CupertinoIcons.search, size: 20),
                       suffixIcon: Icon(CupertinoIcons.mic_fill, size: 20),
                       contentPadding: EdgeInsets.symmetric(
-                        vertical: 12,
+                        vertical: 11,
                         horizontal: 10,
                       ),
                       border: InputBorder.none,
