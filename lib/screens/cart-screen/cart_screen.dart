@@ -21,19 +21,19 @@ class _CartScreenState extends State<CartScreen> {
   TextEditingController searchController = TextEditingController();
   List<CartItemModel> items = [
     CartItemModel(
-      image: "milk.png",
+      image: "amul.jpeg",
       name: "Amul Taaza Fresh Toned Milk(500ml)",
       estimatedTime: "10 MINS",
       price: 27.0,
     ),
     CartItemModel(
-      image: "potato.png",
+      image: "potato.jpg",
       name: "Potato(Aloo)",
       price: 30.0,
       estimatedTime: "12 MINS",
     ),
     CartItemModel(
-      image: "tomato.png",
+      image: "hybrid_tomato.png",
       name: "Hybrid Tomato",
       price: 40.0,
       estimatedTime: "15 MINS",
