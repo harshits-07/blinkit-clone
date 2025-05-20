@@ -7,7 +7,6 @@ import 'package:blinkit_clone/widgets/custom_image.dart';
 import 'package:blinkit_clone/widgets/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -89,6 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
               CustomAppBar.customAppBar(
                 searchController: searchController,
                 hasGradient: false,
+                context: context,
               ),
               Divider(height: height * 0),
 
@@ -119,6 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               children: [
                                 CustomText.customText(
+                                  context: context,
                                   text: "FLAT 10% OFF",
                                   color: Colors.white,
                                   size: height * 0.022,
@@ -132,6 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 SizedBox(height: height * 0.006),
                                 CustomText.customText(
+                                  context: context,
                                   text: "ON THESE DAILY ESSENTIALS",
                                   size: height * 0.01425,
                                   fontFamily: "Bold_Poppins",
@@ -142,6 +144,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           SizedBox(height: height * 0.0055),
                           CustomText.customText(
+                            context: context,
                             text: "GET UP TO ₹200 OFF",
                             color: Colors.brown.shade400,
                             fontFamily: "Bold_Poppins",
@@ -213,8 +216,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(bottom: 8.r),
+                      padding: EdgeInsets.only(bottom: height * 0.01),
                       child: CustomText.customText(
+                        context: context,
                         text: "BestSellers",
                         weight: FontWeight.bold,
                         size: height * 0.022,
@@ -292,6 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                       SizedBox(width: width * 0.01),
                                       CustomText.customText(
+                                        context: context,
                                         text:
                                             "${sellerItems[index].estimatedTime}",
                                         color: AppColors.fadeColor,
@@ -299,6 +304,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ],
                                   ),
                                   CustomText.customText(
+                                    context: context,
                                     text: "₹ ${sellerItems[index].price}",
                                     weight: FontWeight.bold,
                                   ),
@@ -343,6 +349,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomText.customText(
+                      context: context,
                       text: "See all products",
                       size: height * 0.0155,
                     ),

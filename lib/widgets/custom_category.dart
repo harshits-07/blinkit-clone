@@ -16,6 +16,7 @@ class CustomCategoryUI {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomText.customText(
+          context: context,
           text: categoryTitle,
           size: height * 0.022,
           fontFamily: "Bold_Poppins",

@@ -1,10 +1,9 @@
 import 'package:blinkit_clone/core/colors.dart';
 import 'package:blinkit_clone/data/models/cart_item_model.dart';
 import 'package:blinkit_clone/widgets/custom_appbar.dart';
-import 'package:blinkit_clone/widgets/custom_image.dart';
+import 'package:blinkit_clone/widgets/custom_category.dart';
 import 'package:blinkit_clone/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -42,112 +41,41 @@ class _CategoryScreenState extends State<CategoryScreen> {
     CartItemModel(image: "image 39.png", name: "Cleaners & Repellents"),
   ];
 
-  customCategoryUI({
-    required BuildContext context,
-    required String categoryTitle,
-    required List<CartItemModel> items,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomText.customText(
-          text: categoryTitle,
-          size: 20.sp,
-          fontFamily: "Bold_Poppins",
-          weight: FontWeight.bold,
-        ),
-
-        SizedBox(height: 8.h),
-        GridView.builder(
-          shrinkWrap: true,
-          padding: EdgeInsets.zero,
-
-          physics: ClampingScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.7,
-          ),
-          itemBuilder: (context, index) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: EdgeInsets.all(4.0.r),
-                  child: Container(
-                    height: 78.h,
-                    width: 71.w,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.r),
-                      color: AppColors.imgBackgroundColor,
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(10.r),
-                      child: SizedBox(
-                        height: 60.h,
-                        width: 60.w,
-                        child: CustomImage.customImage(
-                          img: items[index].image.toString(),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 5.h),
-                Text(
-                  "${items[index].name}",
-                  style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.bold,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                ),
-              ],
-            );
-          },
-          itemCount: items.length,
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Column(
         children: [
-          CustomAppBar.customAppBar(searchController: searchController),
-          Divider(height: 0.h),
-          SizedBox(height: 20.h),
+          CustomAppBar.customAppBar(
+            searchController: searchController,
+            context: context,
+          ),
+          Divider(height: height * 0),
+          SizedBox(height: height * 0.02),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 15.0.w,
-                      vertical: 10.0.h,
-                    ),
+                    padding: EdgeInsets.symmetric(horizontal: height * 0.009),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        customCategoryUI(
+                        CustomCategoryUI.customCategoryUI(
                           context: context,
                           categoryTitle: "Grocery & Kitchen",
                           items: groceryItems,
                         ),
-                        SizedBox(height: 20.h),
-                        customCategoryUI(
+                        SizedBox(height: height * 0.02),
+                        CustomCategoryUI.customCategoryUI(
                           context: context,
                           categoryTitle: "Snacks & Drinks",
                           items: snacksItems,
                         ),
-                        SizedBox(height: 20.h),
-                        customCategoryUI(
+                        SizedBox(height: height * 0.02),
+                        CustomCategoryUI.customCategoryUI(
                           context: context,
                           categoryTitle: "Household Essentials",
                           items: householdItems,
@@ -155,24 +83,26 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: height * 0.02),
                   Container(
-                    padding: EdgeInsets.all(15.r),
+                    padding: EdgeInsets.all(width * 0.05),
                     color: Colors.grey.shade200,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomText.customText(
+                          context: context,
                           text: "India's Last minute app ❤",
-                          size: 45.sp,
+                          size: height * 0.0495,
                           color: AppColors.fadeColor,
                           fontFamily: "Bold_Poppins",
                           weight: FontWeight.bold,
                         ),
                         Divider(),
                         CustomText.customText(
+                          context: context,
                           text: "Blinkit",
-                          size: 25.sp,
+                          size: height * 0.0275,
                           color: AppColors.fadeColor,
                           fontFamily: "Bold_Poppins",
                           weight: FontWeight.bold,
