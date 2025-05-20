@@ -9,6 +9,7 @@ class CustomAppBar {
     required TextEditingController searchController,
     String? headerText,
     String? searchHintText,
+    bool? hasGradient = true,
   }) {
     String searchHint = searchHintText ?? "'ice-cream'";
     return Stack(
@@ -17,16 +18,22 @@ class CustomAppBar {
           height: 225.h,
           width: double.infinity,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [AppColors.primaryColor, Colors.yellow.shade50],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-            ),
+            gradient:
+                hasGradient!
+                    ? LinearGradient(
+                      colors: [AppColors.primaryColor, Colors.yellow.shade50],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    )
+                    : null,
             color: AppColors.primaryColor,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(8.r),
-              bottomRight: Radius.circular(8.r),
-            ),
+            borderRadius:
+                hasGradient
+                    ? BorderRadius.only(
+                      bottomLeft: Radius.circular(8.r),
+                      bottomRight: Radius.circular(8.r),
+                    )
+                    : null,
           ),
           child: Padding(
             padding: EdgeInsets.all(15.r),
