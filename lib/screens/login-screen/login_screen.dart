@@ -4,6 +4,7 @@ import 'package:blinkit_clone/widgets/custom_buttons.dart';
 import 'package:blinkit_clone/widgets/custom_image.dart';
 import 'package:blinkit_clone/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -19,13 +20,13 @@ class LoginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CustomImage.customImage(img: "blinkit_onboarding_image.png"),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               CustomImage.customImage(img: "image_2.png"),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               Text(
                 "India's last minute app",
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.w700,
                   fontFamily: "Poppins",
                 ),
@@ -34,10 +35,10 @@ class LoginScreen extends StatelessWidget {
               Card(
                 elevation: 2.5,
                 child: Padding(
-                  padding: const EdgeInsets.all(12),
+                  padding: EdgeInsets.all(12.0.r),
                   child: SizedBox(
-                    height: 200,
-                    width: 350,
+                    height: 200.h,
+                    width: 350.w,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -47,7 +48,7 @@ class LoginScreen extends StatelessWidget {
                           color: AppColors.fadeColor,
                           weight: FontWeight.w700,
                         ),
-                        SizedBox(height: 5),
+                        SizedBox(height: 5.h),
                         CustomButtons.customElevatedButton(
                           context: context,
                           text: "Login with Zomato",
@@ -55,14 +56,14 @@ class LoginScreen extends StatelessWidget {
                             context.push(BottomNavbarScreen.path);
                           },
                         ),
-                        SizedBox(height: 5),
+                        SizedBox(height: 5.h),
                         CustomText.customText(
                           text:
                               "Access your saved address from Zomato automatically.",
                           color: AppColors.fadeColor,
-                          size: 12.0,
+                          size: 12.0.sp,
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 20.h),
                         TextButton(
                           onPressed: () {},
                           child: CustomText.customText(

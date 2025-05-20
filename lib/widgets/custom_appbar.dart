@@ -2,6 +2,7 @@ import 'package:blinkit_clone/core/colors.dart';
 import 'package:blinkit_clone/widgets/custom_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar {
   static customAppBar({
@@ -13,21 +14,26 @@ class CustomAppBar {
     return Stack(
       children: [
         Container(
-          height: 225,
+          height: 225.h,
           width: double.infinity,
           decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [AppColors.primaryColor, Colors.yellow.shade50],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
             color: AppColors.primaryColor,
             borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(8),
-              bottomRight: Radius.circular(8),
+              bottomLeft: Radius.circular(8.r),
+              bottomRight: Radius.circular(8.r),
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(15),
+            padding: EdgeInsets.all(15.r),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(height: 40),
+                SizedBox(height: 40.h),
                 CustomText.customText(
                   text: headerText ?? "Blinkit in",
                   weight: FontWeight.bold,
@@ -37,13 +43,13 @@ class CustomAppBar {
                   text: "16 minutes",
                   weight: FontWeight.bold,
                   fontFamily: "Bold_Poppins",
-                  size: 20,
+                  size: 20.sp,
                 ),
                 RichText(
                   text: TextSpan(
                     style: TextStyle(
                       color: CupertinoColors.black,
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       fontWeight: FontWeight.w400,
                       fontFamily: "Poppins",
                     ),
@@ -58,16 +64,16 @@ class CustomAppBar {
                       TextSpan(
                         text: "Harry, Krishna Colony, Palwal(HR)",
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 18),
+                SizedBox(height: 18.h),
                 SizedBox(
-                  height: 48,
+                  height: 48.h,
                   child: TextField(
                     controller: searchController,
                     keyboardType: TextInputType.text,
@@ -75,14 +81,14 @@ class CustomAppBar {
                       filled: true,
                       fillColor: Colors.white,
                       hintText: "search $searchHint",
-                      prefixIcon: Icon(CupertinoIcons.search, size: 20),
-                      suffixIcon: Icon(CupertinoIcons.mic_fill, size: 20),
+                      prefixIcon: Icon(CupertinoIcons.search, size: 20.r),
+                      suffixIcon: Icon(CupertinoIcons.mic_fill, size: 20.r),
                       contentPadding: EdgeInsets.symmetric(
-                        vertical: 11,
-                        horizontal: 10,
+                        vertical: 11.h,
+                        horizontal: 10.w,
                       ),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(12.r),
                       ),
                     ),
                   ),
@@ -96,8 +102,8 @@ class CustomAppBar {
           bottom: 120,
           child: CircleAvatar(
             backgroundColor: Colors.white,
-            radius: 15,
-            child: Icon(CupertinoIcons.person_solid, size: 20),
+            radius: 15.r,
+            child: Icon(CupertinoIcons.person_solid, size: 20.r),
           ),
         ),
       ],

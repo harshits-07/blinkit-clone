@@ -4,6 +4,7 @@ import 'package:blinkit_clone/widgets/custom_appbar.dart';
 import 'package:blinkit_clone/widgets/custom_image.dart';
 import 'package:blinkit_clone/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -51,11 +52,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
       children: [
         CustomText.customText(
           text: categoryTitle,
-          size: 20,
+          size: 20.sp,
           fontFamily: "Bold_Poppins",
           weight: FontWeight.bold,
         ),
-        SizedBox(height: 8),
+
+        SizedBox(height: 8.h),
         GridView.builder(
           shrinkWrap: true,
           padding: EdgeInsets.zero,
@@ -72,19 +74,19 @@ class _CategoryScreenState extends State<CategoryScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(4.0),
+                  padding: EdgeInsets.all(4.0.r),
                   child: Container(
-                    height: 78,
-                    width: 71,
+                    height: 78.h,
+                    width: 71.w,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(10.r),
                       color: AppColors.imgBackgroundColor,
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(10.r),
                       child: SizedBox(
-                        height: 60,
-                        width: 60,
+                        height: 60.h,
+                        width: 60.w,
                         child: CustomImage.customImage(
                           img: items[index].image.toString(),
                         ),
@@ -92,12 +94,12 @@ class _CategoryScreenState extends State<CategoryScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 5),
+                SizedBox(height: 5.h),
                 Text(
                   "${items[index].name}",
                   style: TextStyle(
                     fontFamily: "Poppins",
-                    fontSize: 12,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.bold,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -119,15 +121,16 @@ class _CategoryScreenState extends State<CategoryScreen> {
       body: Column(
         children: [
           CustomAppBar.customAppBar(searchController: searchController),
-          SizedBox(height: 20),
+          Divider(height: 0.h),
+          SizedBox(height: 20.h),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 15.0,
-                      vertical: 10.0,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 15.0.w,
+                      vertical: 10.0.h,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -137,13 +140,13 @@ class _CategoryScreenState extends State<CategoryScreen> {
                           categoryTitle: "Grocery & Kitchen",
                           items: groceryItems,
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 20.h),
                         customCategoryUI(
                           context: context,
                           categoryTitle: "Snacks & Drinks",
                           items: snacksItems,
                         ),
-                        SizedBox(height: 20),
+                        SizedBox(height: 20.h),
                         customCategoryUI(
                           context: context,
                           categoryTitle: "Household Essentials",
@@ -152,16 +155,16 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   Container(
-                    padding: EdgeInsets.all(15),
+                    padding: EdgeInsets.all(15.r),
                     color: Colors.grey.shade200,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         CustomText.customText(
                           text: "India's Last minute app ❤",
-                          size: 45,
+                          size: 45.sp,
                           color: AppColors.fadeColor,
                           fontFamily: "Bold_Poppins",
                           weight: FontWeight.bold,
@@ -169,7 +172,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                         Divider(),
                         CustomText.customText(
                           text: "Blinkit",
-                          size: 25,
+                          size: 25.sp,
                           color: AppColors.fadeColor,
                           fontFamily: "Bold_Poppins",
                           weight: FontWeight.bold,

@@ -6,6 +6,12 @@ class HomeScreen extends StatelessWidget {
   static const path = "/home-screen";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("Home Screen")));
+    return Scaffold(
+      body: Center(
+        child: Text(
+          "width: ${MediaQuery.of(context).size.width}, and height: ${MediaQuery.of(context).size.height}",
+        ),
+      ),
+    );
   }
 }

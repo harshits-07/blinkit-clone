@@ -4,6 +4,7 @@ import 'package:blinkit_clone/widgets/custom_buttons.dart';
 import 'package:blinkit_clone/widgets/custom_image.dart';
 import 'package:blinkit_clone/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PrintScreen extends StatefulWidget {
   const PrintScreen({super.key});
@@ -28,14 +29,15 @@ class _PrintScreenState extends State<PrintScreen> {
             headerText: "Print in",
             searchHintText: "'stapler'",
           ),
-          SizedBox(height: 30),
+          Divider(height: 0.h),
+          SizedBox(height: 30.h),
           Padding(
-            padding: const EdgeInsets.all(15),
+            padding: EdgeInsets.all(15.r),
             child: Column(
               children: [
                 CustomText.customText(
                   text: "Print Store",
-                  size: 32,
+                  size: 32.sp,
                   weight: FontWeight.bold,
                   fontFamily: "Bold_Poppins",
                 ),
@@ -44,20 +46,20 @@ class _PrintScreenState extends State<PrintScreen> {
                   color: AppColors.fadeColor,
                   weight: FontWeight.bold,
                 ),
-                SizedBox(height: 60),
+                SizedBox(height: 60.h),
                 Stack(
                   children: [
                     Container(
-                      height: 165,
-                      width: double.infinity,
+                      height: 165.h,
+                      width: double.infinity.w,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
+                        borderRadius: BorderRadius.circular(10.r),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 8,
-                          horizontal: 15,
+                        padding: EdgeInsets.symmetric(
+                          vertical: 8.h,
+                          horizontal: 15.w,
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,42 +67,42 @@ class _PrintScreenState extends State<PrintScreen> {
                             CustomText.customText(
                               text: "Documents",
                               weight: FontWeight.bold,
-                              size: 20,
+                              size: 20.sp,
                               fontFamily: "Bold_Poppins",
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 10.h),
                             CustomText.customText(
                               text: "✦  Price starting at ₹3/page",
                               color: AppColors.fadeColor,
-                              size: 14,
+                              size: 14.sp,
                             ),
                             CustomText.customText(
                               text: "✦  Paper quality: 70 GSM",
                               color: AppColors.fadeColor,
-                              size: 14,
+                              size: 14.sp,
                             ),
                             CustomText.customText(
                               text: "✦  Single side prints",
                               color: AppColors.fadeColor,
-                              size: 14,
+                              size: 14.sp,
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: 5.h),
                             CustomButtons.customElevatedButton(
                               text: "Upload Files",
                               onPressed: () {},
                               context: context,
                               bgColor: AppColors.linkColor,
-                              height: 40,
-                              width: 135,
-                              fontSize: 14,
+                              height: 40.h,
+                              width: 135.w,
+                              fontSize: 14.sp,
                             ),
                           ],
                         ),
                       ),
                     ),
                     Positioned(
-                      right: 10,
-                      bottom: 40,
+                      right: 10.r,
+                      bottom: 40.r,
                       child: CustomImage.customImage(img: "pages.png"),
                     ),
                   ],

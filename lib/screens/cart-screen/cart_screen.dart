@@ -6,6 +6,7 @@ import 'package:blinkit_clone/widgets/custom_image.dart';
 import 'package:blinkit_clone/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -46,37 +47,41 @@ class _CartScreenState extends State<CartScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           CustomAppBar.customAppBar(searchController: searchController),
-          SizedBox(height: 20),
+          Divider(height: 0.h),
+          SizedBox(height: 20.h),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   CustomImage.customImage(img: "shopping-cart.png"),
-                  SizedBox(height: 10),
+                  SizedBox(height: 10.h),
                   CustomText.customText(
                     text: "Reordering will be easy",
                     weight: FontWeight.bold,
-                    size: 20,
+                    size: 20.sp,
                     fontFamily: "Bold_Poppins",
                   ),
                   CustomText.customText(
                     text: "Items you order will show up here so you can buy",
-                    size: 12,
+                    size: 12.sp,
                   ),
-                  CustomText.customText(text: "them again easily.", size: 12),
+                  CustomText.customText(
+                    text: "them again easily.",
+                    size: 12.sp,
+                  ),
 
-                  SizedBox(height: 30),
+                  SizedBox(height: 30.h),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 15.w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(bottom: 8),
+                          padding: EdgeInsets.only(bottom: 8.r),
                           child: CustomText.customText(
                             text: "BestSellers",
                             weight: FontWeight.bold,
-                            size: 20,
+                            size: 20.sp,
                           ),
                         ),
 
@@ -93,26 +98,26 @@ class _CartScreenState extends State<CartScreen> {
                               ),
                           itemBuilder: (context, index) {
                             return SizedBox(
-                              height: 180,
+                              height: 180.h,
                               child: Card(
                                 elevation: 0,
                                 clipBehavior: Clip.antiAlias,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(10.r),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0.r),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.stretch,
                                     children: [
                                       SizedBox(
-                                        height: 120,
+                                        height: 120.h,
                                         child: Stack(
                                           children: [
                                             ClipRRect(
                                               borderRadius:
-                                                  BorderRadius.circular(10),
+                                                  BorderRadius.circular(10.r),
                                               child: CustomImage.customImage(
                                                 img: "${items[index].image}",
                                               ),
@@ -132,26 +137,26 @@ class _CartScreenState extends State<CartScreen> {
                                           ],
                                         ),
                                       ),
-                                      SizedBox(height: 5),
+                                      SizedBox(height: 5.h),
                                       Text(
                                         "${items[index].name}",
                                         style: TextStyle(
                                           fontFamily: "Poppins",
-                                          fontSize: 14,
+                                          fontSize: 14.sp,
                                           fontWeight: FontWeight.bold,
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                         maxLines: 1,
                                       ),
-                                      SizedBox(height: 5),
+                                      SizedBox(height: 5.h),
                                       Row(
                                         children: [
                                           Icon(
                                             CupertinoIcons.time_solid,
-                                            size: 18,
+                                            size: 18.r,
                                             color: Colors.brown,
                                           ),
-                                          SizedBox(width: 4),
+                                          SizedBox(width: 4.w),
                                           CustomText.customText(
                                             text:
                                                 "${items[index].estimatedTime}",
