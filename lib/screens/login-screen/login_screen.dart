@@ -21,7 +21,8 @@ class LoginScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: height * 0.046),
-            CustomImage.customImage(img: "blinkit_onboarding_image.png"),
+            CustomImage.customImage(img: "blinkit_onboarding_image.png",fit: BoxFit.cover, height: height * 0.45,
+                width: double.infinity,),
             SizedBox(height: height * 0.02),
             CustomImage.customImage(img: "image_2.png"),
             SizedBox(height: height * 0.012),
@@ -37,9 +38,9 @@ class LoginScreen extends StatelessWidget {
             Card(
               elevation: 2.5,
               child: Padding(
-                padding: EdgeInsets.all(width * 0.04),
+                padding: EdgeInsets.all(width * 0.025),
                 child: SizedBox(
-                  height: height * 0.2,
+                  height: height * 0.21,
                   width: width * 0.8,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -67,7 +68,7 @@ class LoginScreen extends StatelessWidget {
                         color: AppColors.fadeColor,
                         size: height * 0.012,
                       ),
-                      SizedBox(height: height * 0.001),
+                      SizedBox(height: height * 0.007),
                       TextButton(
                         onPressed: () {},
                         child: CustomText.customText(

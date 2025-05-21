@@ -23,7 +23,7 @@ class CustomCategoryUI {
           weight: FontWeight.bold,
         ),
 
-        SizedBox(height: height * 0.009),
+        SizedBox(height: height * 0.01),
         GridView.builder(
           shrinkWrap: true,
           padding: EdgeInsets.zero,
@@ -31,9 +31,9 @@ class CustomCategoryUI {
           physics: ClampingScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            childAspectRatio: 0.7,
+            crossAxisSpacing: height*0.012,
+            mainAxisSpacing: height*0.012,
+            childAspectRatio: 0.8,
           ),
           itemBuilder: (context, index) {
             return Column(
@@ -42,7 +42,7 @@ class CustomCategoryUI {
                 Padding(
                   padding: EdgeInsets.all(4.0),
                   child: Container(
-                    height: height * 0.09,
+                    height: height * 0.1,
                     width: width * 0.19,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),

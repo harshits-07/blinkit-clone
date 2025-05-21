@@ -231,9 +231,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       physics: ClampingScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3, // Reduce from 3 to 2 columns
-                        mainAxisSpacing: 5,
-                        crossAxisSpacing: 5,
-                        childAspectRatio: 0.58,
+                        mainAxisSpacing: height*0.006,
+                        crossAxisSpacing: height*0.006,
+                        childAspectRatio: 0.71,
                       ),
                       itemBuilder: (context, index) {
                         return SizedBox(
@@ -247,9 +247,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Padding(
                               padding: EdgeInsets.all(width * 0.02),
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
-                                  SizedBox(
+                                  Align(
+                                    alignment: Alignment.topCenter,
+                                    child: SizedBox(
                                     height: height * 0.135,
                                     child: Stack(
                                       children: [
@@ -263,7 +264,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                         Padding(
                                           padding: EdgeInsets.only(
-                                            left: width * 0.178,
+                                            left: width * 0.14,
                                             top: height * 0.103,
                                           ),
                                           child: CustomButtons.customTextButton(
@@ -275,8 +276,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(height: 0.006),
-                                  Text(
+                                  ),
+                                  SizedBox(height: height*0.008,),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [Text(
                                     "${sellerItems[index].name}",
                                     style: TextStyle(
                                       fontFamily: "Poppins",
@@ -307,7 +311,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     context: context,
                                     text: "₹ ${sellerItems[index].price}",
                                     weight: FontWeight.bold,
-                                  ),
+                                  ),],)
+                                  
                                 ],
                               ),
                             ),

@@ -38,7 +38,7 @@ class CustomAppBar {
                     : null,
           ),
           child: Padding(
-            padding: EdgeInsets.all(width * 0.05),
+            padding: EdgeInsets.all(width * 0.03),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
