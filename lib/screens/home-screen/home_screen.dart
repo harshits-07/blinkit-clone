@@ -209,112 +209,99 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: height * 0.02),
+
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: height * 0.009),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Padding(
-                      padding: EdgeInsets.only(bottom: height * 0.01),
-                      child: CustomText.customText(
-                        context: context,
-                        text: "BestSellers",
-                        weight: FontWeight.bold,
-                        size: height * 0.022,
-                      ),
+                    SizedBox(height: height * 0.02),
+                    CustomText.customText(
+                      context: context,
+                      text: "BestSellers",
+                      weight: FontWeight.bold,
+                      size: height * 0.022,
                     ),
 
                     GridView.builder(
                       shrinkWrap: true,
                       padding: EdgeInsets.zero,
-                      physics: ClampingScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3, // Reduce from 3 to 2 columns
-                        mainAxisSpacing: height*0.006,
-                        crossAxisSpacing: height*0.006,
-                        childAspectRatio: 0.71,
+                        crossAxisCount: 3,
+                        mainAxisSpacing: height * 0.006,
+                        crossAxisSpacing: height * 0.006,
+                        childAspectRatio: 0.62,
                       ),
                       itemBuilder: (context, index) {
-                        return SizedBox(
-                          height: height * 0.216,
-                          child: Card(
-                            elevation: 0,
-                            clipBehavior: Clip.antiAlias,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.all(width * 0.02),
-                              child: Column(
-                                children: [
-                                  Align(
-                                    alignment: Alignment.topCenter,
-                                    child: SizedBox(
-                                    height: height * 0.135,
-                                    child: Stack(
+                        final item = sellerItems[index];
+                        return Card(
+                          elevation: 0,
+                          clipBehavior: Clip.antiAlias,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(width * 0.02),
+                            child: Column(
+                              children: [
+                                Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: CustomImage.customImage(
+                                        img: "${item.image}",
+                                      ),
+                                    ),
+                                    Positioned(
+                                      right: 0,
+                                      bottom: 0,
+                                      child: CustomButtons.customTextButton(
+                                        text: "ADD",
+                                        onPressed: () {},
+                                        context: context,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: height * 0.008),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      item.name.toString(),
+                                      style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        fontSize: height * 0.0155,
+                                        fontWeight: FontWeight.bold,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      maxLines: 1,
+                                    ),
+                                    SizedBox(height: 0.006),
+                                    Row(
                                       children: [
-                                        ClipRRect(
-                                          borderRadius: BorderRadius.circular(
-                                            10,
-                                          ),
-                                          child: CustomImage.customImage(
-                                            img: "${sellerItems[index].image}",
-                                          ),
+                                        Icon(
+                                          CupertinoIcons.time_solid,
+                                          size: height * 0.015,
+                                          color: Colors.brown,
                                         ),
-                                        Padding(
-                                          padding: EdgeInsets.only(
-                                            left: width * 0.14,
-                                            top: height * 0.103,
-                                          ),
-                                          child: CustomButtons.customTextButton(
-                                            text: "ADD",
-                                            onPressed: () {},
-                                            context: context,
-                                          ),
+                                        SizedBox(width: width * 0.01),
+                                        CustomText.customText(
+                                          context: context,
+                                          text: item.estimatedTime.toString(),
+                                          color: AppColors.fadeColor,
                                         ),
                                       ],
                                     ),
-                                  ),
-                                  ),
-                                  SizedBox(height: height*0.008,),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [Text(
-                                    "${sellerItems[index].name}",
-                                    style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: height * 0.0155,
-                                      fontWeight: FontWeight.bold,
-                                      overflow: TextOverflow.ellipsis,
+                                    CustomText.customText(
+                                      context: context,
+                                      text: "₹ ${item.price}",
+                                      weight: FontWeight.bold,
                                     ),
-                                    maxLines: 1,
-                                  ),
-                                  SizedBox(height: 0.006),
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        CupertinoIcons.time_solid,
-                                        size: height * 0.015,
-                                        color: Colors.brown,
-                                      ),
-                                      SizedBox(width: width * 0.01),
-                                      CustomText.customText(
-                                        context: context,
-                                        text:
-                                            "${sellerItems[index].estimatedTime}",
-                                        color: AppColors.fadeColor,
-                                      ),
-                                    ],
-                                  ),
-                                  CustomText.customText(
-                                    context: context,
-                                    text: "₹ ${sellerItems[index].price}",
-                                    weight: FontWeight.bold,
-                                  ),],)
-                                  
-                                ],
-                              ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         );

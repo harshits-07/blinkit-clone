@@ -31,9 +31,9 @@ class CustomCategoryUI {
           physics: ClampingScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
-            crossAxisSpacing: height*0.012,
-            mainAxisSpacing: height*0.012,
-            childAspectRatio: 0.8,
+            crossAxisSpacing: height * 0.012,
+            mainAxisSpacing: height * 0.012,
+            childAspectRatio: 0.62,
           ),
           itemBuilder: (context, index) {
             return Column(
